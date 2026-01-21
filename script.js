@@ -18,3 +18,21 @@ function computerInput(randomNumber) {
         return ("Scissors");
 }
 console.log(computerInput(getRandomArbitrary(0, 3)));
+
+let userChoice = prompt("Please enter your choice")
+console.log(userChoice)
+
+
+function getHumanChoice(userChoice) {
+    if (userChoice === "Rock");
+    return "Rock";
+    if (userChoice === "Paper");
+    return "Paper";
+    if (userChoice === "Scissors");
+    return "Scissors";
+    else return "Error - No appropriate option chosen";
+}
+
+
+
+// console.log(getHumanChoice(userChoice))
