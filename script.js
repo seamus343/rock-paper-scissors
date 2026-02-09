@@ -24,15 +24,28 @@ console.log(userChoice)
 
 
 function getHumanChoice(userChoice) {
-    if (userChoice === "Rock");
+    if (userChoice === "Rock")
     return "Rock";
-    if (userChoice === "Paper");
+    if (userChoice === "Paper")
     return "Paper";
-    if (userChoice === "Scissors");
+    if (userChoice === "Scissors")
     return "Scissors";
-    else return "Error - No appropriate option chosen";
 }
 
+let humanScore = 0;
+let computerScore = 0;
 
+console.log("Human Score = " + humanScore + " VS " + "Computer Score = " + computerScore)
+
+function playRound(userChoice, computerChoice) {
+    if ((userChoice === "Rock") && (computerChoice === "Paper"))
+    return ("You Lose! Paper beats rock");
+    if ((userChoice === "Rock") && (computerChoice === "Scissors"))
+    return ("You Win! Rock beats scissors");
+    if ((userChoice === "Rock") && (computerChoice === "Rock"))
+    return ("That's a Draw!");
+}
+
+console.log(playRound(userChoice, computerInput))
 
 // console.log(getHumanChoice(userChoice))
