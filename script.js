@@ -7,7 +7,10 @@
  function getRandomArbitrary(min, max) {
   return (Math.random() * (max - min) + min);
 }
-console.log(getRandomArbitrary(0, 3));
+
+const randomNumber = getRandomArbitrary(0, 3);
+
+// console.log(getRandomArbitrary(0, 3));
 
 function computerInput(randomNumber) {
     if (randomNumber < 1)
@@ -17,20 +20,31 @@ function computerInput(randomNumber) {
     if (randomNumber >= 2)
         return ("Scissors");
 }
-console.log(computerInput(getRandomArbitrary(0, 3)));
+
+console.log(randomNumber);
+console.log(computerInput(randomNumber));
+
+// console.log(computerInput(getRandomArbitrary(0, 3)));
 
 let userChoice = prompt("Please enter your choice")
 console.log(userChoice)
 
-
 function getHumanChoice(userChoice) {
-    if (userChoice === "Rock")
-    return "Rock";
-    if (userChoice === "Paper")
-    return "Paper";
-    if (userChoice === "Scissors")
-    return "Scissors";
+    const normalised = userChoice.toLowerCase();
+    if (normalised === "rock") return "Rock";
+    if (normalised === "paper") return "Paper";
+    if (normalised === "scissors") return "Scissors";
 }
+
+
+// function getHumanChoice(userChoice) {
+//     if (userChoice === "Rock")
+//     return "Rock";
+//     if (userChoice === "Paper")
+//     return "Paper";
+//     if (userChoice === "Scissors")
+//     return "Scissors";
+// }
 
 let humanScore = 0;
 let computerScore = 0;
@@ -38,14 +52,45 @@ let computerScore = 0;
 console.log("Human Score = " + humanScore + " VS " + "Computer Score = " + computerScore)
 
 function playRound(userChoice, computerChoice) {
-    if ((userChoice === "Rock") && (computerChoice === "Paper"))
-    return ("You Lose! Paper beats rock");
-    if ((userChoice === "Rock") && (computerChoice === "Scissors"))
-    return ("You Win! Rock beats scissors");
-    if ((userChoice === "Rock") && (computerChoice === "Rock"))
-    return ("That's a Draw!");
+    if ((userChoice === "Rock") && (computerChoice === "Paper")) {
+        computerScore++;
+        return ("You Lose! Paper beats rock");
+    }
+    if ((userChoice === "Rock") && (computerChoice === "Scissors")) {
+        humanScore++;
+        return ("You Win! Rock beats scissors");
+    }
+    if ((userChoice === "Rock") && (computerChoice === "Rock")) {
+        return ("That's a Draw!");
+    }
+      if ((userChoice === "Paper") && (computerChoice === "Scissors")) {
+        computerScore++;
+        return ("You Lose! Scissors beats paper")
+    }
+    if ((userChoice === "Paper") && (computerChoice === "Rock")) {
+        humanScore++;
+        return ("You Win! Paper beats rock");
+    }
+    if ((userChoice === "Paper") && (computerChoice === "Paper")) {
+        return ("That's a Draw!");
+    }
+     if ((userChoice === "Scissors") && (computerChoice === "Rock")) {
+        computerScore++;
+        return ("You Lose! Rock beats scissors")
+    }
+    if ((userChoice === "Scissors") && (computerChoice === "Paper")) {
+        humanScore++;
+        return ("You Win! Scissors beats paper");
+    }
+    if ((userChoice === "Scissors") && (computerChoice === "Scissors")) {
+        return ("That's a Draw!");
+    }
 }
 
-console.log(playRound(userChoice, computerInput))
+console.log(playRound(userChoice, computerInput(randomNumber)));
+
+// console.log(playRound(userChoice, computerInput(getRandomArbitrary(0, 3))))
+
+console.log("Human Score = " + humanScore + " VS " + "Computer Score = " + computerScore)
 
 // console.log(getHumanChoice(userChoice))
