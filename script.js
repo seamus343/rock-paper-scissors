@@ -8,10 +8,6 @@
   return (Math.random() * (max - min) + min);
 }
 
-const randomNumber = getRandomArbitrary(0, 3);
-
-// console.log(getRandomArbitrary(0, 3));
-
 function computerInput(randomNumber) {
     if (randomNumber < 1)
     return ("Rock");
@@ -21,14 +17,6 @@ function computerInput(randomNumber) {
         return ("Scissors");
 }
 
-console.log(randomNumber);
-console.log(computerInput(randomNumber));
-
-// console.log(computerInput(getRandomArbitrary(0, 3)));
-
-let userChoice = prompt("Please enter your choice")
-console.log(userChoice)
-
 function getHumanChoice(userChoice) {
     const normalised = userChoice.toLowerCase();
     if (normalised === "rock") return "Rock";
@@ -36,20 +24,15 @@ function getHumanChoice(userChoice) {
     if (normalised === "scissors") return "Scissors";
 }
 
-
-// function getHumanChoice(userChoice) {
-//     if (userChoice === "Rock")
-//     return "Rock";
-//     if (userChoice === "Paper")
-//     return "Paper";
-//     if (userChoice === "Scissors")
-//     return "Scissors";
-// }
-
 let humanScore = 0;
 let computerScore = 0;
 
-console.log("Human Score = " + humanScore + " VS " + "Computer Score = " + computerScore)
+for (let i = 0; i < 5; i++) {
+    let userChoice = prompt("Please enter your choice");
+    let computerChoice = computerInput(getRandomArbitrary(0, 3));
+    console.log(playRound(getHumanChoice(userChoice), computerChoice));
+    console.log("Human Score = " + humanScore + " VS " + "Computer Score = " + computerScore);
+}
 
 function playRound(userChoice, computerChoice) {
     if ((userChoice === "Rock") && (computerChoice === "Paper")) {
@@ -85,12 +68,7 @@ function playRound(userChoice, computerChoice) {
     if ((userChoice === "Scissors") && (computerChoice === "Scissors")) {
         return ("That's a Draw!");
     }
-}
+}``
 
-console.log(playRound(userChoice, computerInput(randomNumber)));
-
-// console.log(playRound(userChoice, computerInput(getRandomArbitrary(0, 3))))
-
-console.log("Human Score = " + humanScore + " VS " + "Computer Score = " + computerScore)
-
-// console.log(getHumanChoice(userChoice))
+console.log("Game over!");
+console.log(`Final score — You: ${humanScore} | Computer: ${computerScore}`);
